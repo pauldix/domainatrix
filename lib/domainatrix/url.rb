@@ -10,14 +10,11 @@ module Domainatrix
     end
 
     def canonical(options = {})
-      url = "#{@tld}.#{@domain}"
+      tld_parts = @tld.split(".")
+      url = "#{tld_parts.reverse.join(".")}.#{@domain}"
       if @subdomain
-        if options[:include_www]
-          url << ".#{@subdomain}"
-        else
-          sub_without_www = @subdomain.gsub(/^www/, "")
-          url << (sub_without_www.start_with?(".") ? sub_without_www : ".#{sub_without_www}") unless sub_without_www.empty?
-        end
+        subdomain_parts = @subdomain.split(".")
+        url << ".#{subdomain_parts.reverse.join(".")}"
       end
       url << @path if @path
 

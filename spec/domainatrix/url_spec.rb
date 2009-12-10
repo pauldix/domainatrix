@@ -17,13 +17,13 @@ describe "url" do
     Domainatrix::Url.new(:path => "/asdf.html").path.should == "/asdf.html"
   end
 
-  it "canonicalizes the url without www" do
-    Domainatrix::Url.new(:subdomain => "www", :domain => "pauldix", :tld => "net").canonical.should == "net.pauldix"
-    Domainatrix::Url.new(:subdomain => "www.foo", :domain => "pauldix", :tld => "net").canonical.should == "net.pauldix.foo"
-  end
-
-  it "canonicalizes the url with www" do
-    Domainatrix::Url.new(:subdomain => "www", :domain => "pauldix", :tld => "net").canonical(:include_www => true).should == "net.pauldix.www"
+  it "canonicalizes the url" do
+    Domainatrix::Url.new(:domain => "pauldix", :tld => "net").canonical.should == "net.pauldix"
+    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :tld => "net").canonical.should == "net.pauldix.foo"
+    Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :tld => "net").canonical.should == "net.pauldix.bar.foo"
+    Domainatrix::Url.new(:domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix"
+    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix.foo"
+    Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix.bar.foo"
   end
 
   it "canonicalizes the url with the path" do
