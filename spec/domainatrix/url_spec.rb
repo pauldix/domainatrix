@@ -24,6 +24,7 @@ describe "url" do
     Domainatrix::Url.new(:domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix"
     Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix.foo"
     Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix.bar.foo"
+    Domainatrix::Url.new(:subdomain => "", :domain => "pauldix", :tld => "co.uk").canonical.should == "uk.co.pauldix"
   end
 
   it "canonicalizes the url with the path" do

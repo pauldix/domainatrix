@@ -12,7 +12,7 @@ module Domainatrix
     def canonical(options = {})
       tld_parts = @tld.split(".")
       url = "#{tld_parts.reverse.join(".")}.#{@domain}"
-      if @subdomain
+      if @subdomain && !@subdomain.empty?
         subdomain_parts = @subdomain.split(".")
         url << ".#{subdomain_parts.reverse.join(".")}"
       end
