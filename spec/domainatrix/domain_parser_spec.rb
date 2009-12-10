@@ -6,20 +6,58 @@ describe "domain parser" do
   end
 
   describe "reading the dat file" do
-    it "create a trie of the domain names" do
+    it "creates a tree of the domain names" do
       @domain_parser.tlds.should be_a Hash
     end
 
-    it "should have the first level of the tree" do
+    it "creates the first level of the tree" do
       @domain_parser.tlds.should have_key("com")
     end
 
-    it "should have the first level of the tree even when the first doesn't appear on a line by itself" do
+    it "creates the first level of the tree even when the first doesn't appear on a line by itself" do
       @domain_parser.tlds.should have_key("uk")
     end
 
-    it "should have lower levels of the tree" do
+    it "creates lower levels of the tree" do
       @domain_parser.tlds["jp"].should have_key("ac")
+      @domain_parser.tlds["jp"]["aichi"].should have_key("*")
+    end
+  end
+
+  describe "parsing" do
+    it "returns a hash of parts" do
+      @domain_parser.parse("http://pauldix.net").should be_a Hash
+    end
+
+    it "should strip the http://" do
+      @domain_parser.parse("http://pauldix.net").values.each {|val| (val =~ /http\:\/\//).should_not be}
+    end
+
+    it "parses out the path" do
+      @domain_parser.parse("http://pauldix.net/foo.html?asdf=foo")[:path].should == "/foo.html?asdf=foo"
+      @domain_parser.parse("http://pauldix.net?asdf=foo")[:path].should == "?asdf=foo"
+      @domain_parser.parse("http://pauldix.net")[:path].should == ""
+    end
+
+    it "parses the tld" do
+      @domain_parser.parse("http://pauldix.net")[:tld].should == "net"
+      @domain_parser.parse("http://pauldix.co.uk")[:tld].should == "co.uk"
+      @domain_parser.parse("http://pauldix.com.kg")[:tld].should == "com.kg"
+      @domain_parser.parse("http://pauldix.com.aichi.jp")[:tld].should == "com.aichi.jp"
+    end
+
+    it "should have the domain" do
+      @domain_parser.parse("http://pauldix.net")[:domain].should == "pauldix"
+      @domain_parser.parse("http://foo.pauldix.net")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.co.uk")[:domain].should == "pauldix"
+      @domain_parser.parse("http://foo.pauldix.co.uk")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.com.kg")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.com.aichi.jp")[:domain].should == "pauldix"
+    end
+
+    it "should have subdomains" do
+      @domain_parser.parse("http://foo.pauldix.net")[:subdomain].should == "foo"
+      @domain_parser.parse("http://bar.foo.pauldix.co.uk")[:subdomain].should == "bar.foo"
     end
   end
 end
