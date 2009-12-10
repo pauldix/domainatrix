@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{domainatrix}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Paul Dix"]
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/pauldix/domainatrix}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A cruel misstress that uses the public suffix domain list to dominate URLs by canonicalizing, finding TLDs, and breaking them into their domain parts.}
+  s.summary = %q{A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding TLDs, and breaking them into their domain parts.}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
