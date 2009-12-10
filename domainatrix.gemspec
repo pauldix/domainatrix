@@ -11,9 +11,14 @@ Gem::Specification.new do |s|
   s.files = [
     "lib/domainatrix.rb",
     "lib/effective_tld_names.dat",
+    "lib/domainatrix/domain_parser.rb",
+    "lib/domainatrix/url.rb",
     "README.textile",
     "spec/spec.opts",
-    "spec/spec_helper.rb"]
+    "spec/spec_helper.rb",
+    "spec/domainatrix_spec.rb",
+    "spec/domainatrix/domain_parser_spec.rb",
+    "spec/domainatrix/url_spec.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/pauldix/domainatrix}
   s.require_paths = ["lib"]
