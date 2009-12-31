@@ -23,6 +23,7 @@ require 'rubygems'
 require 'domainatrix'
 
 url = Domainatrix.parse("http://www.pauldix.net")
+url.url       # => "http://www.pauldix.net" (the original url)
 url.tld       # => "net"
 url.domain    # => "pauldix"
 url.canonical # => "net.pauldix"
