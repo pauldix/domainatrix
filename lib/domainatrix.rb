@@ -5,7 +5,7 @@ require 'domainatrix/domain_parser.rb'
 require 'domainatrix/url.rb'
 
 module Domainatrix
-  VERSION = "0.0.3"
+  VERSION = "0.0.4"
 
   def self.parse(url)
     @domain_parser ||= DomainParser.new("#{File.dirname(__FILE__)}/effective_tld_names.dat")
