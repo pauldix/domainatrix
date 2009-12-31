@@ -28,7 +28,7 @@ module Domainatrix
       else
         path = uri.path
       end
-      parse_domains_from_host(uri.host).merge({:path => path})
+      parse_domains_from_host(uri.host).merge({:path => path, :url => url})
     end
 
     def parse_domains_from_host(host)

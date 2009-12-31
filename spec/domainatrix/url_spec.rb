@@ -1,6 +1,10 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "url" do
+  it "has the original url" do
+    Domainatrix::Url.new(:url => "http://pauldix.net").url.should == "http://pauldix.net"
+  end
+
   it "has the tld" do
     Domainatrix::Url.new(:tld => "net").tld.should == "net"
   end

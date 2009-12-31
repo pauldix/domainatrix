@@ -29,8 +29,8 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.net").should be_a Hash
     end
 
-    it "should strip the http://" do
-      @domain_parser.parse("http://pauldix.net").values.each {|val| (val =~ /http\:\/\//).should_not be}
+    it "includes the original url" do
+      @domain_parser.parse("http://www.pauldix.net")[:url].should == "http://www.pauldix.net"
     end
 
     it "parses out the path" do
