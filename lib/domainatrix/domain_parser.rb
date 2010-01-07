@@ -10,7 +10,7 @@ module Domainatrix
     def read_dat_file(file_name)
       File.readlines(file_name).each do |line|
         line = line.strip
-        unless line.start_with? "//" || line.empty?
+        unless (line =~ /\/\//) || line.empty?
           parts = line.split(".").reverse
 
           sub_hash = @tlds
