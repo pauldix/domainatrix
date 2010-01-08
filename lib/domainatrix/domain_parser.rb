@@ -1,9 +1,9 @@
 module Domainatrix
   class DomainParser
-    attr_reader :tlds
+    attr_reader :public_suffixes
 
     def initialize(file_name)
-      @tlds = {}
+      @public_suffixes = {}
       read_dat_file(file_name)
     end
 
@@ -13,7 +13,7 @@ module Domainatrix
         unless (line =~ /\/\//) || line.empty?
           parts = line.split(".").reverse
 
-          sub_hash = @tlds
+          sub_hash = @public_suffixes
           parts.each do |part|
             sub_hash = (sub_hash[part] ||= {})
           end
@@ -33,31 +33,31 @@ module Domainatrix
 
     def parse_domains_from_host(host)
       parts = host.split(".").reverse
-      tld = []
+      public_suffix = []
       domain = ""
       subdomains = []
-      sub_hash = @tlds
+      sub_hash = @public_suffixes
       parts.each_index do |i|
         part = parts[i]
 
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
         if sub_parts.has_key? "*"
-          tld << part
-          tld << parts[i+1]
+          public_suffix << part
+          public_suffix << parts[i+1]
           domain = parts[i+2]
           subdomains = parts.slice(i+3, parts.size)
           break
         elsif sub_parts.empty? || !sub_parts.has_key?(parts[i+1])
-          tld << part
+          public_suffix << part
           domain = parts[i+1]
           subdomains = parts.slice(i+2, parts.size)
           break
         else
-          tld << part
+          public_suffix << part
         end
       end
-      {:tld => tld.reverse.join("."), :domain => domain, :subdomain => subdomains.reverse.join(".")}
+      {:public_suffix => public_suffix.reverse.join("."), :domain => domain, :subdomain => subdomains.reverse.join(".")}
     end
   end
 end

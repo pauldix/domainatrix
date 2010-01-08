@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/pauldix/domainatrix}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding TLDs, and breaking them into their domain parts.}
+  s.summary = %q{A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding the public suffix, and breaking them into their domain parts.}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

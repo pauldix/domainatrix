@@ -4,11 +4,11 @@ h1. Domainatrix
 
 h2. Summary
 
-A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding TLDs, and breaking them into their domain parts.
+A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding public suffixes, and breaking them into their domain parts.
 
 h2. Description
 
-This simple library can parse a URL into its canonical form. It uses the list of domains from "http://publicsuffix.org":http://publicsuffix.org to break the domain into its tld, domain, and subdomain.
+This simple library can parse a URL into its canonical form. It uses the list of domains from "http://publicsuffix.org":http://publicsuffix.org to break the domain into its public suffix, domain, and subdomain.
 
 h2. Installation
 
@@ -24,12 +24,12 @@ require 'domainatrix'
 
 url = Domainatrix.parse("http://www.pauldix.net")
 url.url       # => "http://www.pauldix.net" (the original url)
-url.tld       # => "net"
+url.public_suffix       # => "net"
 url.domain    # => "pauldix"
 url.canonical # => "net.pauldix"
 
 url = Domainatrix.parse("http://foo.bar.pauldix.co.uk/asdf.html?q=arg")
-url.tld       # => "co.uk"
+url.public_suffix       # => "co.uk"
 url.domain    # => "pauldix"
 url.subdomain # => "foo.bar"
 url.path      # => "/asdf.html?q=arg"

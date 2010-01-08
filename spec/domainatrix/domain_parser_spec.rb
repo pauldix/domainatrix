@@ -7,20 +7,20 @@ describe "domain parser" do
 
   describe "reading the dat file" do
     it "creates a tree of the domain names" do
-      @domain_parser.tlds.should be_a Hash
+      @domain_parser.public_suffixes.should be_a Hash
     end
 
     it "creates the first level of the tree" do
-      @domain_parser.tlds.should have_key("com")
+      @domain_parser.public_suffixes.should have_key("com")
     end
 
     it "creates the first level of the tree even when the first doesn't appear on a line by itself" do
-      @domain_parser.tlds.should have_key("uk")
+      @domain_parser.public_suffixes.should have_key("uk")
     end
 
     it "creates lower levels of the tree" do
-      @domain_parser.tlds["jp"].should have_key("ac")
-      @domain_parser.tlds["jp"]["aichi"].should have_key("*")
+      @domain_parser.public_suffixes["jp"].should have_key("ac")
+      @domain_parser.public_suffixes["jp"]["aichi"].should have_key("*")
     end
   end
 
@@ -40,10 +40,10 @@ describe "domain parser" do
     end
 
     it "parses the tld" do
-      @domain_parser.parse("http://pauldix.net")[:tld].should == "net"
-      @domain_parser.parse("http://pauldix.co.uk")[:tld].should == "co.uk"
-      @domain_parser.parse("http://pauldix.com.kg")[:tld].should == "com.kg"
-      @domain_parser.parse("http://pauldix.com.aichi.jp")[:tld].should == "com.aichi.jp"
+      @domain_parser.parse("http://pauldix.net")[:public_suffix].should == "net"
+      @domain_parser.parse("http://pauldix.co.uk")[:public_suffix].should == "co.uk"
+      @domain_parser.parse("http://pauldix.com.kg")[:public_suffix].should == "com.kg"
+      @domain_parser.parse("http://pauldix.com.aichi.jp")[:public_suffix].should == "com.aichi.jp"
     end
 
     it "should have the domain" do

@@ -1,18 +1,18 @@
 module Domainatrix
   class Url
-    attr_reader :tld, :domain, :subdomain, :path, :url
+    attr_reader :public_suffix, :domain, :subdomain, :path, :url
 
     def initialize(attrs = {})
       @url = attrs[:url]
-      @tld = attrs[:tld]
+      @public_suffix = attrs[:public_suffix]
       @domain = attrs[:domain]
       @subdomain = attrs[:subdomain]
       @path = attrs[:path]
     end
 
     def canonical(options = {})
-      tld_parts = @tld.split(".")
-      url = "#{tld_parts.reverse.join(".")}.#{@domain}"
+      public_suffix_parts = @public_suffix.split(".")
+      url = "#{public_suffix_parts.reverse.join(".")}.#{@domain}"
       if @subdomain && !@subdomain.empty?
         subdomain_parts = @subdomain.split(".")
         url << ".#{subdomain_parts.reverse.join(".")}"
