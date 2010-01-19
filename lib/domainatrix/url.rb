@@ -1,8 +1,10 @@
 module Domainatrix
   class Url
-    attr_reader :public_suffix, :domain, :subdomain, :path, :url
+    attr_reader :public_suffix, :domain, :subdomain, :path, :url, :scheme, :host
 
     def initialize(attrs = {})
+      @scheme = attrs[:scheme]
+      @host = attrs[:host]
       @url = attrs[:url]
       @public_suffix = attrs[:public_suffix]
       @domain = attrs[:domain]
