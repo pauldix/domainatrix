@@ -30,12 +30,19 @@ module Domainatrix
       else
         path = uri.path
       end
-      parse_domains_from_host(uri.host).merge({
+
+      domains_info = {}
+
+      if !uri.host =~ /\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/
+        domains_info = parse_domains_from_host(uri.host)
+      end
+
+      {
         :scheme => uri.scheme,
         :host   => uri.host,
         :path   => path,
         :url    => url
-      })
+      }.merge(domains_info)
     end
 
     def parse_domains_from_host(host)
