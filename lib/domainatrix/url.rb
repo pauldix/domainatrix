@@ -23,5 +23,11 @@ module Domainatrix
 
       url
     end
+
+    def domain_with_public_suffix
+      "#{@domain}.#{@public_suffix}"
+    end
+    alias domain_with_tld domain_with_public_suffix
+
   end
 end
