@@ -10,7 +10,14 @@ module Domainatrix
     end
 
     def read_dat_file(file_name)
-      File.readlines(file_name).each do |line|
+      # If we're in 1.9, make sure we're opening it in UTF-8
+      if RUBY_VERSION >= '1.9'
+        dat_file = File.open(file_name, "r:UTF-8")
+      else
+        dat_file = File.open(file_name)
+      end
+      
+      dat_file.each_line do |line|
         line = line.strip
         unless (line =~ /\/\//) || line.empty?
           parts = line.split(".").reverse
