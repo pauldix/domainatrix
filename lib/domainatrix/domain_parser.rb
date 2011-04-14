@@ -19,14 +19,16 @@ module Domainatrix
       
       dat_file.each_line do |line|
         line = line.strip
-        unless (line =~ /\/\//) || line.empty?
-          parts = line.split(".").reverse
+        add_domain(line) unless (line =~ /\/\//) || line.empty?
+      end
+    end
+    
+    def add_domain(name)
+      parts = name.split(".").reverse
 
-          sub_hash = @public_suffixes
-          parts.each do |part|
-            sub_hash = (sub_hash[part] ||= {})
-          end
-        end
+      sub_hash = @public_suffixes
+      parts.each do |part|
+        sub_hash = (sub_hash[part] ||= {})
       end
     end
 

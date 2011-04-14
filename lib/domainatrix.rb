@@ -11,4 +11,8 @@ module Domainatrix
   def self.parse(url)
     Url.new(DOMAIN_PARSER.parse(url))
   end
+  
+  def self.recognize_tld(tld)
+    DOMAIN_PARSER.add_domain(tld)
+  end
 end
