@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
     "spec/domainatrix_spec.rb",
     "spec/domainatrix/domain_parser_spec.rb",
     "spec/domainatrix/url_spec.rb"]
-  s.has_rdoc = true
   s.homepage = %q{http://github.com/pauldix/domainatrix}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
