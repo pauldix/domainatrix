@@ -31,6 +31,7 @@ module Domainatrix
     end
 
     def parse(url)
+      url.downcase!
       uri = URI.parse(url)
       if uri.query
         path = "#{uri.path}?#{uri.query}"
@@ -46,6 +47,7 @@ module Domainatrix
     end
 
     def parse_domains_from_host(host)
+      host.downcase!
       parts = host.split(".").reverse
       public_suffix = []
       domain = ""
