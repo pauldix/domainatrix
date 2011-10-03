@@ -24,7 +24,7 @@ describe "domain parser" do
     end
   end
 
-  describe "parsing" do
+  describe :parse do
     it "returns a hash of parts" do
       @domain_parser.parse("http://pauldix.net").should be_a Hash
     end
@@ -66,6 +66,32 @@ describe "domain parser" do
     it "should have subdomains" do
       @domain_parser.parse("http://foo.pauldix.net")[:subdomain].should == "foo"
       @domain_parser.parse("http://bar.foo.pauldix.co.uk")[:subdomain].should == "bar.foo"
+    end
+  end
+
+  describe :parse_domains_from_host do
+    it "should parse from a lowercase host" do
+      @domain_parser.parse_domains_from_host("foo.pauldix.net")[:domain].should == "pauldix"
+      @domain_parser.parse_domains_from_host("foo.pauldix.net")[:subdomain].should == "foo"
+      @domain_parser.parse_domains_from_host("foo.pauldix.net")[:public_suffix].should == "net"
+    end
+    it "should parse from a mixed case host" do
+      @domain_parser.parse_domains_from_host("foo.pauldix.NET")[:domain].should == "pauldix"
+      @domain_parser.parse_domains_from_host("foo.pauldix.NET")[:subdomain].should == "foo"
+      @domain_parser.parse_domains_from_host("foo.pauldix.NET")[:public_suffix].should == "net"
+    end
+    it "should parse from an uppercase host" do
+      @domain_parser.parse_domains_from_host("FOO.PAULDIX.NET")[:domain].should == "pauldix"
+      @domain_parser.parse_domains_from_host("FOO.PAULDIX.NET")[:subdomain].should == "foo"
+      @domain_parser.parse_domains_from_host("FOO.PAULDIX.NET")[:public_suffix].should == "net"
+    end
+    it "should parse from an empty host" do
+      @domain_parser.parse_domains_from_host("")[:domain].should == ""
+      @domain_parser.parse_domains_from_host("")[:subdomain].should == ""
+      @domain_parser.parse_domains_from_host("")[:public_suffix].should == ""
+    end
+    it "should raise an error for invalid input" do
+      lambda { @domain_parser.parse_domains_from_host(nil) }.should raise_error
     end
   end
 end
