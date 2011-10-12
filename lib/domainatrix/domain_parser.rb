@@ -34,6 +34,8 @@ module Domainatrix
 
     def parse(url)
       uri = URI.parse(url)
+      raise ParseError unless uri && !uri.host.nil?
+      
       if uri.query
         path = "#{uri.path}?#{uri.query}"
       else
@@ -58,6 +60,8 @@ module Domainatrix
 
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
+        raise ParseError if sub_hash.nil?
+        
         if sub_parts.has_key? "*"
           public_suffix << part
           public_suffix << parts[i+1]

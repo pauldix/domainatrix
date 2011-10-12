@@ -10,9 +10,13 @@ module Domainatrix
 
   def self.parse(url)
     Url.new(DOMAIN_PARSER.parse(url))
+  rescue ParseError
+    nil
   end
   
   def self.recognize_tld(tld)
     DOMAIN_PARSER.add_domain(tld)
   end
+  
+  class ParseError < StandardError; end
 end

@@ -67,5 +67,12 @@ describe "domain parser" do
       @domain_parser.parse("http://foo.pauldix.net")[:subdomain].should == "foo"
       @domain_parser.parse("http://bar.foo.pauldix.co.uk")[:subdomain].should == "bar.foo"
     end
+    
+    it "should fail gracefully on invalid domain names" do
+      lambda { @domain_parser.parse("http://hello.world") }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse("complete garbage") }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse('') }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse(nil) }.should raise_error(Domainatrix::ParseError)
+    end
   end
 end
