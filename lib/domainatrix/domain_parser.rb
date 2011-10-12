@@ -19,19 +19,23 @@ module Domainatrix
       
       dat_file.each_line do |line|
         line = line.strip
-        unless (line =~ /\/\//) || line.empty?
-          parts = line.split(".").reverse
+        add_domain(line) unless (line =~ /\/\//) || line.empty?
+      end
+    end
+    
+    def add_domain(name)
+      parts = name.split(".").reverse
 
-          sub_hash = @public_suffixes
-          parts.each do |part|
-            sub_hash = (sub_hash[part] ||= {})
-          end
-        end
+      sub_hash = @public_suffixes
+      parts.each do |part|
+        sub_hash = (sub_hash[part] ||= {})
       end
     end
 
     def parse(url)
       uri = URI.parse(url)
+      raise ParseError unless uri && !uri.host.nil?
+      
       if uri.query
         path = "#{uri.path}?#{uri.query}"
       else
@@ -56,6 +60,8 @@ module Domainatrix
 
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
+        raise ParseError if sub_hash.nil?
+        
         if sub_parts.has_key? "*"
           public_suffix << part
           public_suffix << parts[i+1]

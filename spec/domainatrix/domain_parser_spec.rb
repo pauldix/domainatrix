@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "domain parser" do
@@ -52,6 +54,8 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.co.uk")[:public_suffix].should == "co.uk"
       @domain_parser.parse("http://pauldix.com.kg")[:public_suffix].should == "com.kg"
       @domain_parser.parse("http://pauldix.com.aichi.jp")[:public_suffix].should == "com.aichi.jp"
+      @domain_parser.parse("http://pauldix.السعوديه")[:public_suffix].should == "السعوديه"
+      @domain_parser.parse("http://pauldix.臺灣")[:public_suffix].should == "臺灣"
     end
 
     it "should have the domain" do
@@ -61,11 +65,20 @@ describe "domain parser" do
       @domain_parser.parse("http://foo.pauldix.co.uk")[:domain].should == "pauldix"
       @domain_parser.parse("http://pauldix.com.kg")[:domain].should == "pauldix"
       @domain_parser.parse("http://pauldix.com.aichi.jp")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.السعوديه")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.臺灣")[:domain].should == "pauldix"
     end
 
     it "should have subdomains" do
       @domain_parser.parse("http://foo.pauldix.net")[:subdomain].should == "foo"
       @domain_parser.parse("http://bar.foo.pauldix.co.uk")[:subdomain].should == "bar.foo"
+    end
+    
+    it "should fail gracefully on invalid domain names" do
+      lambda { @domain_parser.parse("http://hello.world") }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse("complete garbage") }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse('') }.should raise_error(Domainatrix::ParseError)
+      lambda { @domain_parser.parse(nil) }.should raise_error(Domainatrix::ParseError)
     end
   end
 end
