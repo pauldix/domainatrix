@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require File.dirname(__FILE__) + '/spec_helper'
 
 describe "domainatrix" do
@@ -12,6 +14,11 @@ describe "domainatrix" do
     Domainatrix.parse("http://foo.pauldix.net").canonical.should == "net.pauldix.foo"
     Domainatrix.parse("http://foo.bar.pauldix.net").canonical.should == "net.pauldix.bar.foo"
     Domainatrix.parse("http://pauldix.co.uk").canonical.should == "uk.co.pauldix"
+  end
+  
+  it "should canonicalize extended utf-8 tlds" do
+    Domainatrix.parse("http://pauldix.臺灣").canonical.should == "臺灣.pauldix"
+    Domainatrix.parse("http://pauldix.السعوديه").canonical.should == "السعوديه.pauldix"
   end
   
   it "should not canonicalize invalid domain names" do
