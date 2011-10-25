@@ -31,6 +31,7 @@ module Domainatrix
     end
 
     def parse(url)
+      url = "http://#{url}" unless url[/:\/\//]
       uri = URI.parse(url)
       if uri.query
         path = "#{uri.path}?#{uri.query}"

@@ -13,4 +13,16 @@ describe "domainatrix" do
     Domainatrix.parse("http://foo.bar.pauldix.net").canonical.should == "net.pauldix.bar.foo"
     Domainatrix.parse("http://pauldix.co.uk").canonical.should == "uk.co.pauldix"
   end
+
+  context 'without a scheme' do
+    subject { Domainatrix.parse('www.pauldix.net') }
+    its(:scheme) { should == 'http' }
+    its(:host) { should == 'www.pauldix.net' }
+    its(:url) { should == 'http://www.pauldix.net' }
+    its(:public_suffix) { should == 'net' }
+    its(:domain) { should == 'pauldix' }
+    its(:subdomain) { should == 'www' }
+    its(:path) { should == '' }
+    its(:domain_with_tld) { should == 'pauldix.net' }
+  end
 end
