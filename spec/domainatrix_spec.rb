@@ -14,6 +14,18 @@ describe "domainatrix" do
     Domainatrix.parse("http://pauldix.co.uk").canonical.should == "uk.co.pauldix"
   end
 
+  context 'localhost with a port' do
+    subject { Domainatrix.parse('localhost:3000') }
+    its(:scheme) { should == 'http' }
+    its(:host) { should == 'localhost' }
+    its(:url) { should == 'http://localhost:3000' }
+    its(:public_suffix) { should == '' }
+    its(:domain) { should == 'localhost' }
+    its(:subdomain) { should == '' }
+    its(:path) { should == '' }
+    its(:domain_with_tld) { should == 'localhost' }
+  end
+
   context 'without a scheme' do
     subject { Domainatrix.parse('www.pauldix.net') }
     its(:scheme) { should == 'http' }
