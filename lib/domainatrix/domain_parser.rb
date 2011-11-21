@@ -19,7 +19,7 @@ module Domainatrix
 
       dat_file.each_line do |line|
         line = line.strip
-        add_domain(line) unless (line =~ /\/\//) || line.empty?
+        add_domain(line) unless line.match(/\/\//)
       end
     end
 
