@@ -48,13 +48,9 @@ module Domainatrix
     def parse_domains_from_host(host)
       public_suffix = parse_public_suffix_from_host(host)
       parts = host.gsub(public_suffix, '').split(".")
-
-      domain = ""
-      subdomains = []
-
-      domain = parts.last
-      subdomains = parts.slice(0, parts.size - 1) if parts.length > 1
-      {:public_suffix => public_suffix, :domain => domain, :subdomain => subdomains.join("."), :host => host}
+      domain = parts.pop
+      subdomains = parts.join(".")
+      {:public_suffix => public_suffix, :domain => domain, :subdomain => subdomains, :host => host}
     end
 
     def parse_public_suffix_from_host(host)
