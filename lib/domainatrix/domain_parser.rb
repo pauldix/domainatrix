@@ -35,7 +35,8 @@ module Domainatrix
     def parse(url)
       uri = URI.parse(url)
       path = uri.path
-      path += "?#{uri.query}" if uri.query
+      query = uri.query
+      path += "?#{query}" if query
 
       parse_domains_from_host(uri.host).merge({
         :scheme => uri.scheme,
