@@ -43,7 +43,6 @@ module Domainatrix
       end
       parse_domains_from_host(uri.host).merge({
         :scheme => uri.scheme,
-        :host   => uri.host,
         :path   => path,
         :url    => url
       })
@@ -55,6 +54,7 @@ module Domainatrix
       domain = ""
       subdomains = []
       sub_hash = @public_suffixes
+
       parts.each_index do |i|
         part = parts[i]
 
@@ -77,7 +77,7 @@ module Domainatrix
           public_suffix << part
         end
       end
-      {:public_suffix => public_suffix.reverse.join("."), :domain => domain, :subdomain => subdomains.reverse.join(".")}
+      {:public_suffix => public_suffix.reverse.join("."), :domain => domain, :subdomain => subdomains.reverse.join("."), :host => host}
     end
   end
 end
