@@ -13,6 +13,7 @@ module Domainatrix
     end
 
     def canonical(options = {})
+      return nil unless valid?
       public_suffix_parts = @public_suffix.split(".")
       url = "#{public_suffix_parts.reverse.join(".")}.#{@domain}"
       if @subdomain && !@subdomain.empty?
@@ -29,5 +30,8 @@ module Domainatrix
     end
     alias domain_with_tld domain_with_public_suffix
 
+    def valid?
+      @public_suffix and !@public_suffix.empty?
+    end
   end
 end

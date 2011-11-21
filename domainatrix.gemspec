@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{domainatrix}
-  s.version = "0.0.9"
+  s.version = "0.0.12"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Paul Dix"]
@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
     "spec/domainatrix_spec.rb",
     "spec/domainatrix/domain_parser_spec.rb",
     "spec/domainatrix/url_spec.rb"]
-  s.has_rdoc = true
   s.homepage = %q{http://github.com/pauldix/domainatrix}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}

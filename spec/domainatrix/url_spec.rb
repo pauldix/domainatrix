@@ -44,11 +44,26 @@ describe "url" do
     Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_public_suffix.should == "foo.co.uk"
     Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_public_suffix.should == "bar.com"
   end
-  
+
   it "combines the domain with the public_suffix as an alias" do
     Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").domain_with_tld.should == "pauldix.net"
     Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_tld.should == "foo.co.uk"
     Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_tld.should == "bar.com"
   end
 
+  describe :valid? do
+    it "should return true when supplied a valid url" do
+      Domainatrix.parse("https://github.com/pauldix/domainatrix/issues/14?foo=bar").should be_valid
+    end
+
+    it "should return false without a public suffix" do
+      Domainatrix.parse("htpp://www.test.this_is_not_a_public_suffix").should_not be_valid
+    end
+
+    it "should return false when supplied a malformed url" do
+      Domainatrix.parse("bad url").should_not be_valid
+      Domainatrix.parse("http://?test.com").should_not be_valid
+      Domainatrix.parse("/test?foo=bar").should_not be_valid
+    end
+  end
 end

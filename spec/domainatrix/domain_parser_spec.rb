@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "domain parser" do
@@ -36,11 +38,16 @@ describe "domain parser" do
     it "includes the scheme" do
       @domain_parser.parse("http://www.pauldix.net")[:scheme].should == "http"
     end
-    
-    it "includes the full host" do
-      @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"      
+
+    it "defaults to http if no scheme is applied" do
+      @domain_parser.parse("www.pauldix.net")[:host].should == "www.pauldix.net"
+      @domain_parser.parse("www.pauldix.net")[:scheme].should == "http"
     end
-    
+
+    it "includes the full host" do
+      @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"
+    end
+
     it "parses out the path" do
       @domain_parser.parse("http://pauldix.net/foo.html?asdf=foo")[:path].should == "/foo.html?asdf=foo"
       @domain_parser.parse("http://pauldix.net?asdf=foo")[:path].should == "?asdf=foo"
@@ -52,6 +59,9 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.co.uk")[:public_suffix].should == "co.uk"
       @domain_parser.parse("http://pauldix.com.kg")[:public_suffix].should == "com.kg"
       @domain_parser.parse("http://pauldix.com.aichi.jp")[:public_suffix].should == "com.aichi.jp"
+      @domain_parser.parse("http://pauldix.السعوديه")[:public_suffix].should == "السعوديه"
+      @domain_parser.parse("http://pauldix.臺灣")[:public_suffix].should == "臺灣"
+      @domain_parser.parse("http://www.foo/")[:public_suffix].should == ""
     end
 
     it "should have the domain" do
@@ -61,6 +71,8 @@ describe "domain parser" do
       @domain_parser.parse("http://foo.pauldix.co.uk")[:domain].should == "pauldix"
       @domain_parser.parse("http://pauldix.com.kg")[:domain].should == "pauldix"
       @domain_parser.parse("http://pauldix.com.aichi.jp")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.السعوديه")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.臺灣")[:domain].should == "pauldix"
     end
 
     it "should have subdomains" do
