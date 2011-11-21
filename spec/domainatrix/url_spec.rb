@@ -51,4 +51,10 @@ describe "url" do
     Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_tld.should == "bar.com"
   end
 
+  describe :valid? do
+    it "should return false without a public suffix" do
+      Domainatrix.parse("http://www.test.com").should be_valid
+      Domainatrix.parse("htpp://www.test.this_is_not_a_public_suffix").should_not be_valid
+    end
+  end
 end

@@ -29,5 +29,8 @@ module Domainatrix
     end
     alias domain_with_tld domain_with_public_suffix
 
+    def valid?
+      !@public_suffix.empty?
+    end
   end
 end
