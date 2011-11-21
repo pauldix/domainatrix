@@ -1,7 +1,7 @@
 module Domainatrix
   class DomainParser
     include Addressable
-    
+
     attr_reader :public_suffixes
 
     def initialize(file_name)
@@ -16,7 +16,7 @@ module Domainatrix
       else
         dat_file = File.open(file_name)
       end
-      
+
       dat_file.each_line do |line|
         line = line.strip
         add_domain(line) unless (line =~ /\/\//) || line.empty?

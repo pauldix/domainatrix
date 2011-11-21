@@ -38,11 +38,11 @@ describe "domain parser" do
     it "includes the scheme" do
       @domain_parser.parse("http://www.pauldix.net")[:scheme].should == "http"
     end
-    
+
     it "includes the full host" do
-      @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"      
+      @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"
     end
-    
+
     it "parses out the path" do
       @domain_parser.parse("http://pauldix.net/foo.html?asdf=foo")[:path].should == "/foo.html?asdf=foo"
       @domain_parser.parse("http://pauldix.net?asdf=foo")[:path].should == "?asdf=foo"
