@@ -58,11 +58,11 @@ module Domainatrix
       sub_hash = @public_suffixes
       public_suffix = []
 
-      parts.each_with_index do |part, i|
+      parts.each_with_index do |part, index|
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
         public_suffix << part
-        next_part = parts[i + 1]
+        next_part = parts[index + 1]
         if sub_parts.has_key? "*"
           public_suffix << next_part
           break
