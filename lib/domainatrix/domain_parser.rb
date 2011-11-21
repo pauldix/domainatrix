@@ -52,9 +52,7 @@ module Domainatrix
       subdomains = []
       sub_hash = @public_suffixes
 
-      parts.each_index do |i|
-        part = parts[i]
-
+      parts.each_with_index do |part, i|
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
 
