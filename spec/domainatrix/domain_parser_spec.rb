@@ -56,6 +56,7 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.com.aichi.jp")[:public_suffix].should == "com.aichi.jp"
       @domain_parser.parse("http://pauldix.السعوديه")[:public_suffix].should == "السعوديه"
       @domain_parser.parse("http://pauldix.臺灣")[:public_suffix].should == "臺灣"
+      @domain_parser.parse("http://www.foo/")[:public_suffix].should == ""
     end
 
     it "should have the domain" do
@@ -72,13 +73,6 @@ describe "domain parser" do
     it "should have subdomains" do
       @domain_parser.parse("http://foo.pauldix.net")[:subdomain].should == "foo"
       @domain_parser.parse("http://bar.foo.pauldix.co.uk")[:subdomain].should == "bar.foo"
-    end
-    
-    it "should fail gracefully on invalid domain names" do
-      lambda { @domain_parser.parse("http://hello.world") }.should raise_error(Domainatrix::ParseError)
-      lambda { @domain_parser.parse("complete garbage") }.should raise_error(Domainatrix::ParseError)
-      lambda { @domain_parser.parse('') }.should raise_error(Domainatrix::ParseError)
-      lambda { @domain_parser.parse(nil) }.should raise_error(Domainatrix::ParseError)
     end
   end
 end

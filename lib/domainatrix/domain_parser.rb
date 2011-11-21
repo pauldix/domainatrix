@@ -61,6 +61,7 @@ module Domainatrix
       parts.each_with_index do |part, index|
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
+        return "" unless sub_parts
         public_suffix << part
         next_part = parts[index + 1]
         if sub_parts.has_key? "*"
