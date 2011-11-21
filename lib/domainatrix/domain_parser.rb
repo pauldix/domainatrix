@@ -35,7 +35,7 @@ module Domainatrix
     def parse(url)
       begin
         uri = URI.parse(url)
-      rescue Addressable::URI::InvalidURIError => e
+      rescue Addressable::URI::InvalidURIError
         return {}
       end
       path = uri.path
