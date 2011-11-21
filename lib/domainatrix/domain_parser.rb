@@ -55,20 +55,16 @@ module Domainatrix
       parts.each_with_index do |part, i|
         sub_parts = sub_hash[part]
         sub_hash = sub_parts
-
+        public_suffix << part
         if sub_parts.has_key? "*"
-          public_suffix << part
           public_suffix << parts[i+1]
           domain = parts[i+2]
           subdomains = parts.slice(i+3, parts.size)
           break
         elsif sub_parts.empty? || !sub_parts.has_key?(parts[i+1])
-          public_suffix << part
           domain = parts[i+1]
           subdomains = parts.slice(i+2, parts.size)
           break
-        else
-          public_suffix << part
         end
       end
       {:public_suffix => public_suffix.reverse.join("."), :domain => domain, :subdomain => subdomains.reverse.join("."), :host => host}
