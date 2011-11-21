@@ -52,9 +52,17 @@ describe "url" do
   end
 
   describe :valid? do
+    it "should return true when supplied a valid url" do
+      Domainatrix.parse("https://github.com/pauldix/domainatrix/issues/14?foo=bar").should be_valid
+    end
+
     it "should return false without a public suffix" do
-      Domainatrix.parse("http://www.test.com").should be_valid
       Domainatrix.parse("htpp://www.test.this_is_not_a_public_suffix").should_not be_valid
+    end
+
+    it "should return false when supplied a malformed url" do
+      Domainatrix.parse("bad url").should_not be_valid
+      Domainatrix.parse("http://?test.com").should_not be_valid
     end
   end
 end

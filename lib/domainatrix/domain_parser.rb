@@ -33,7 +33,11 @@ module Domainatrix
     end
 
     def parse(url)
-      uri = URI.parse(url)
+      begin
+        uri = URI.parse(url)
+      rescue Addressable::URI::InvalidURIError => e
+        return {}
+      end
       path = uri.path
       query = uri.query
       path += "?#{query}" if query
@@ -46,6 +50,9 @@ module Domainatrix
     end
 
     def parse_domains_from_host(host)
+      unless host
+        return {:public_suffix => "", :domain => "", :subdomain => "", :host => ""}
+      end
       public_suffix = parse_public_suffix_from_host(host)
       parts = host.gsub(public_suffix, '').split(".")
       domain = parts.pop
