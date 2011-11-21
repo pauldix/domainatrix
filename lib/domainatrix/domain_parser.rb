@@ -33,6 +33,7 @@ module Domainatrix
     end
 
     def parse(url)
+      url = "http://" + url unless url.match(/\/\//)
       begin
         uri = URI.parse(url)
       rescue Addressable::URI::InvalidURIError

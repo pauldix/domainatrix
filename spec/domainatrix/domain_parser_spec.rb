@@ -39,6 +39,11 @@ describe "domain parser" do
       @domain_parser.parse("http://www.pauldix.net")[:scheme].should == "http"
     end
 
+    it "defaults to http if no scheme is applied" do
+      @domain_parser.parse("www.pauldix.net")[:host].should == "www.pauldix.net"
+      @domain_parser.parse("www.pauldix.net")[:scheme].should == "http"
+    end
+
     it "includes the full host" do
       @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"
     end

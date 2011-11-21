@@ -64,8 +64,6 @@ describe "url" do
       Domainatrix.parse("bad url").should_not be_valid
       Domainatrix.parse("http://?test.com").should_not be_valid
       Domainatrix.parse("/test?foo=bar").should_not be_valid
-      Domainatrix.parse("example.com/test?foo=bar").should_not be_valid
-      Domainatrix.parse("www.example.com/test?foo=bar").should_not be_valid
     end
   end
 end
