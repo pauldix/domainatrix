@@ -37,4 +37,17 @@ describe "domainatrix" do
     its(:path) { should == '' }
     its(:domain_with_tld) { should == 'pauldix.net' }
   end
+
+  context 'with a blank url' do
+    subject { Domainatrix.parse(nil) }
+    its(:scheme) { should == '' }
+    its(:host) { should == '' }
+    its(:url) { should == '' }
+    its(:public_suffix) { should == '' }
+    its(:domain) { should == '' }
+    its(:subdomain) { should == '' }
+    its(:path) { should == '' }
+    its(:domain_with_tld) { should == '' }
+  end
+
 end
