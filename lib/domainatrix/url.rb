@@ -3,13 +3,13 @@ module Domainatrix
     attr_reader :public_suffix, :domain, :subdomain, :path, :url, :scheme, :host
 
     def initialize(attrs = {})
-      @scheme = attrs[:scheme]
-      @host = attrs[:host]
-      @url = attrs[:url]
-      @public_suffix = attrs[:public_suffix]
-      @domain = attrs[:domain]
-      @subdomain = attrs[:subdomain]
-      @path = attrs[:path]
+      @scheme = attrs[:scheme] || ''
+      @host = attrs[:host] || ''
+      @url = attrs[:url] || ''
+      @public_suffix = attrs[:public_suffix] || ''
+      @domain = attrs[:domain] || ''
+      @subdomain = attrs[:subdomain] || ''
+      @path = attrs[:path] || ''
     end
 
     def canonical(options = {})
@@ -25,7 +25,7 @@ module Domainatrix
     end
 
     def domain_with_public_suffix
-      "#{@domain}.#{@public_suffix}"
+      [@domain, @public_suffix].compact.reject{|s|s==''}.join('.')
     end
     alias domain_with_tld domain_with_public_suffix
 
