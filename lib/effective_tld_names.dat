@@ -1,30 +1,31 @@
 // ***** BEGIN LICENSE BLOCK *****
 // Version: MPL 1.1/GPL 2.0/LGPL 2.1
-// 
-// The contents of this file are subject to the Mozilla Public License Version 
-// 1.1 (the "License"); you may not use this file except in compliance with 
-// the License. You may obtain a copy of the License at 
+//
+// The contents of this file are subject to the Mozilla Public License Version
+// 1.1 (the "License"); you may not use this file except in compliance with
+// the License. You may obtain a copy of the License at
 // http://www.mozilla.org/MPL/
-// 
+//
 // Software distributed under the License is distributed on an "AS IS" basis,
 // WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
 // for the specific language governing rights and limitations under the
 // License.
-// 
+//
 // The Original Code is the Public Suffix List.
-// 
+//
 // The Initial Developer of the Original Code is
 // Jo Hermans <jo.hermans@gmail.com>.
 // Portions created by the Initial Developer are Copyright (C) 2007
 // the Initial Developer. All Rights Reserved.
-// 
+//
 // Contributor(s):
-//   Ruben Arakelyan <ruben@wackomenace.co.uk>
+//   Ruben Arakelyan <ruben@rubenarakelyan.com>
 //   Gervase Markham <gerv@gerv.net>
 //   Pamela Greene <pamg.bugs@gmail.com>
 //   David Triendl <david@triendl.name>
+//   Jothan Frakes <jothan@gmail.com>
 //   The kind representatives of many TLD registries
-// 
+//
 // Alternatively, the contents of this file may be used under the terms of
 // either the GNU General Public License Version 2 or later (the "GPL"), or
 // the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
@@ -36,7 +37,7 @@
 // and other provisions required by the GPL or the LGPL. If you do not delete
 // the provisions above, a recipient may use your version of this file under
 // the terms of any one of the MPL, the GPL or the LGPL.
-// 
+//
 // ***** END LICENSE BLOCK *****
 
 // ac : http://en.wikipedia.org/wiki/.ac
@@ -178,13 +179,14 @@ com.ai
 net.ai
 org.ai
 
-// al : http://www.inima.al/Domains.html
+// al : http://www.ert.gov.al/ert_alb/faq_det.html?Id=31
 al
-gov.al
-edu.al
-org.al
 com.al
+edu.al
+gov.al
+mil.al
 net.al
+org.al
 
 // am : http://en.wikipedia.org/wiki/.am
 am
@@ -226,6 +228,7 @@ aq
 e164.arpa
 in-addr.arpa
 ip6.arpa
+iris.arpa
 uri.arpa
 urn.arpa
 
@@ -239,10 +242,14 @@ asia
 // at : http://en.wikipedia.org/wiki/.at
 // Confirmed by registry <it@nic.at> 2008-06-17
 at
-gv.at
 ac.at
 co.at
+gv.at
 or.at
+
+// http://www.info.at/
+biz.at
+info.at
 
 // priv.at : http://www.nic.priv.at/
 // Submitted by registry <lendl@nic.at> 2008-06-09
@@ -260,13 +267,23 @@ tas.edu.au
 vic.edu.au
 wa.edu.au
 act.gov.au
-nsw.gov.au
+// Removed at request of Shae.Donelan@services.nsw.gov.au, 2010-03-04
+// nsw.gov.au
 nt.gov.au
 qld.gov.au
 sa.gov.au
 tas.gov.au
 vic.gov.au
 wa.gov.au
+// CGDNs - http://www.aucd.org.au/
+act.au
+nsw.au
+nt.au
+qld.au
+sa.au
+tas.au
+vic.au
+wa.au
 
 // aw : http://en.wikipedia.org/wiki/.aw
 aw
@@ -305,11 +322,14 @@ rs.ba
 
 // bb : http://en.wikipedia.org/wiki/.bb
 bb
+biz.bb
 com.bb
 edu.bb
 gov.bb
+info.bb
 net.bb
 org.bb
+store.bb
 
 // bd : http://en.wikipedia.org/wiki/.bd
 *.bd
@@ -361,12 +381,15 @@ z.bg
 6.bg
 7.bg
 8.bg
-9.bg	 	 	
+9.bg
 
 // bh : http://en.wikipedia.org/wiki/.bh
-// list of other 2nd level tlds ?
 bh
 com.bh
+edu.bh
+net.bh
+org.bh
+gov.bh
 
 // bi : http://en.wikipedia.org/wiki/.bi
 // http://whois.nic.bi/
@@ -381,8 +404,10 @@ org.bi
 biz
 
 // bj : http://en.wikipedia.org/wiki/.bj
-// list of 2nd level tlds ?
 bj
+asso.bj
+barreau.bj
+gouv.bj
 
 // bm : http://www.bermudanic.bm/dnr-text.txt
 bm
@@ -407,9 +432,8 @@ net.bo
 mil.bo
 tv.bo
 
-// br : http://en.wikipedia.org/wiki/.br
-// http://registro.br/info/dpn.html
-// Confirmed by registry <fneves@registro.br> 2008-06-24
+// br : http://registro.br/dominio/dpn.html
+// Updated by registry <fneves@registro.br> 2011-03-01
 br
 adm.br
 adv.br
@@ -418,6 +442,7 @@ am.br
 arq.br
 art.br
 ato.br
+b.br
 bio.br
 blog.br
 bmd.br
@@ -429,6 +454,7 @@ com.br
 coop.br
 ecn.br
 edu.br
+emp.br
 eng.br
 esp.br
 etc.br
@@ -463,9 +489,12 @@ pro.br
 psc.br
 psi.br
 qsl.br
+radio.br
 rec.br
 slg.br
 srv.br
+taxi.br
+teo.br
 tmp.br
 trd.br
 tur.br
@@ -484,7 +513,12 @@ edu.bs
 gov.bs
 
 // bt : http://en.wikipedia.org/wiki/.bt
-*.bt
+bt
+com.bt
+edu.bt
+gov.bt
+net.bt
+org.bt
 
 // bv : No registrations at this time.
 // Submitted by registry <jarle@uninett.no> 2006-06-16
@@ -506,6 +540,9 @@ mil.by
 // second-level domain, but it's being used as one (see www.google.com.by and
 // www.yahoo.com.by, for example), so we list it here for safety's sake.
 com.by
+
+// http://hoster.by/
+of.by
 
 // bz : http://en.wikipedia.org/wiki/.bz
 // http://www.belizenic.bz/
@@ -659,12 +696,14 @@ com
 
 // CentralNic names : http://www.centralnic.com/names/domains
 // Confirmed by registry <gavin.brown@centralnic.com> 2008-06-09
+// Updated by registry <gavin.brown@centralnic.com> 2011-05-27
 ar.com
 br.com
 cn.com
 de.com
 eu.com
 gb.com
+gr.com
 hu.com
 jpn.com
 kr.com
@@ -677,6 +716,12 @@ uk.com
 us.com
 uy.com
 za.com
+
+// Requested by Yngve Pettersen <yngve@opera.com> 2009-11-26
+operaunite.com
+
+// Requested by Eduardo Vela <evn@google.com> 2010-09-06
+appspot.com
 
 // coop : http://en.wikipedia.org/wiki/.coop
 coop
@@ -719,6 +764,10 @@ cz
 // reservations) 2008-07-01
 de
 
+// CentralNic names : http://www.centralnic.com/names/domains
+// Submitted by registry <gavin.brown@centralnic.com> 2011-05-27
+com.de
+
 // dj : http://en.wikipedia.org/wiki/.dj
 dj
 
@@ -735,7 +784,17 @@ edu.dm
 gov.dm
 
 // do : http://en.wikipedia.org/wiki/.do
-*.do
+do
+art.do
+com.do
+edu.do
+gob.do
+gov.do
+mil.do
+net.do
+org.do
+sld.do
+web.do
 
 // dz : http://en.wikipedia.org/wiki/.dz
 dz
@@ -761,6 +820,7 @@ pro.ec
 org.ec
 edu.ec
 gov.ec
+gob.ec
 mil.ec
 
 // edu : http://en.wikipedia.org/wiki/.edu
@@ -780,7 +840,16 @@ org.ee
 fie.ee
 
 // eg : http://en.wikipedia.org/wiki/.eg
-*.eg
+eg
+com.eg
+edu.eg
+eun.eg
+gov.eg
+mil.eg
+name.eg
+net.eg
+org.eg
+sci.eg
 
 // er : http://en.wikipedia.org/wiki/.er
 *.er
@@ -807,6 +876,8 @@ fi
 // completely removed.
 // TODO: Check for updates (expected to be phased out around Q1/2009)
 aland.fi
+// iki.fi : Submitted by Hannu Aronsson <haa@iki.fi> 2009-11-05
+iki.fi
 
 // fj : http://en.wikipedia.org/wiki/.fj
 *.fj
@@ -899,6 +970,7 @@ edu.gi
 org.gi
 
 // gl : http://en.wikipedia.org/wiki/.gl
+// http://nic.gl
 gl
 
 // gm : http://www.nic.gm/htmlpages%5Cgm-policy.htm
@@ -979,7 +1051,7 @@ org.hk
 网絡.hk
 组织.hk
 組織.hk
-組织.hk 
+組织.hk
 
 // hm : http://en.wikipedia.org/wiki/.hm
 hm
@@ -1056,7 +1128,16 @@ utazas.hu
 video.hu
 
 // id : http://en.wikipedia.org/wiki/.id
-*.id
+// see also: https://register.pandi.or.id/
+id
+ac.id
+co.id
+go.id
+mil.id
+net.id
+or.id
+sch.id
+web.id
 
 // ie : http://en.wikipedia.org/wiki/.ie
 ie
@@ -1116,7 +1197,9 @@ com.iq
 org.iq
 net.iq
 
-// ir : http://www.nic.ir/ascii/Appendix1.htm
+// ir : http://www.nic.ir/Terms_and_Conditions_ir,_Appendix_1_Domain_Rules
+// Also see http://www.nic.ir/Internationalized_Domain_Names
+// Two <iran>.ir entries added at request of <tech-team@nic.ir>, 2010-04-16
 ir
 ac.ir
 co.ir
@@ -1125,6 +1208,10 @@ id.ir
 net.ir
 org.ir
 sch.ir
+// xn--mgba3a4f16a.ir (<iran>.ir, Persian YEH)
+ایران.ir
+// xn--mgba3a4fra.ir (<iran>.ir, Arabic YEH)
+ايران.ir
 
 // is : http://www.isnic.is/domain/rules.php
 // Confirmed by registry <marius@isgate.is> 2008-12-06
@@ -1140,7 +1227,11 @@ int.is
 it
 gov.it
 edu.it
-// geo-names found at http://www.nic.it/RA/en/domini/regole/nomi-riservati.pdf
+// list of reserved geo-names :
+// http://www.nic.it/documenti/regolamenti-e-linee-guida/regolamento-assegnazione-versione-6.0.pdf
+// (There is also a list of reserved geo-names corresponding to Italian
+// municipalities : http://www.nic.it/documenti/appendice-c.pdf , but it is
+// not included here.)
 agrigento.it
 ag.it
 alessandria.it
@@ -1161,8 +1252,17 @@ avellino.it
 av.it
 bari.it
 ba.it
-barlettaandriatrani.it
-barletta-andria-trani.it
+andria-barletta-trani.it
+andriabarlettatrani.it
+trani-barletta-andria.it
+tranibarlettaandria.it
+barletta-trani-andria.it
+barlettatraniandria.it
+andria-trani-barletta.it
+andriatranibarletta.it
+trani-andria-barletta.it
+traniandriabarletta.it
+bt.it
 belluno.it
 bl.it
 benevento.it
@@ -1190,6 +1290,11 @@ caltanissetta.it
 cl.it
 campobasso.it
 cb.it
+carboniaiglesias.it
+carbonia-iglesias.it
+iglesias-carbonia.it
+iglesiascarbonia.it
+ci.it
 caserta.it
 ce.it
 catania.it
@@ -1208,11 +1313,16 @@ crotone.it
 kr.it
 cuneo.it
 cn.it
+dell-ogliastra.it
+dellogliastra.it
+ogliastra.it
+og.it
 enna.it
 en.it
-fermo.it
 ferrara.it
 fe.it
+fermo.it
+fm.it
 firenze.it
 florence.it
 fi.it
@@ -1220,6 +1330,8 @@ foggia.it
 fg.it
 forli-cesena.it
 forlicesena.it
+cesena-forli.it
+cesenaforli.it
 fc.it
 frosinone.it
 fr.it
@@ -1258,9 +1370,16 @@ mantova.it
 mn.it
 massa-carrara.it
 massacarrara.it
+carrara-massa.it
+carraramassa.it
 ms.it
 matera.it
 mt.it
+medio-campidano.it
+mediocampidano.it
+campidano-medio.it
+campidanomedio.it
+vs.it
 messina.it
 me.it
 milano.it
@@ -1269,6 +1388,12 @@ mi.it
 modena.it
 mo.it
 monza.it
+monza-brianza.it
+monzabrianza.it
+monzaebrianza.it
+monzaedellabrianza.it
+monza-e-della-brianza.it
+mb.it
 napoli.it
 naples.it
 na.it
@@ -1293,6 +1418,8 @@ pescara.it
 pe.it
 pesaro-urbino.it
 pesarourbino.it
+urbino-pesaro.it
+urbinopesaro.it
 pu.it
 piacenza.it
 pc.it
@@ -1339,6 +1466,11 @@ sondrio.it
 so.it
 taranto.it
 ta.it
+tempio-olbia.it
+tempioolbia.it
+olbia-tempio.it
+olbiatempio.it
+ot.it
 teramo.it
 te.it
 terni.it
@@ -1406,7 +1538,7 @@ jobs
 // Submitted by registry <yone@jprs.co.jp> 2008-06-11
 // Updated by registry <yone@jprs.co.jp> 2008-12-04
 jp
-// jp organizational type names 
+// jp organizational type names
 ac.jp
 ad.jp
 co.jp
@@ -1591,6 +1723,14 @@ net.kn
 org.kn
 edu.kn
 gov.kn
+
+// kp : http://www.kcce.kp/en_index.php
+com.kp
+edu.kp
+gov.kp
+org.kp
+rep.kp
+tra.kp
 
 // kr : http://en.wikipedia.org/wiki/.kr
 // see also: http://domain.nida.or.kr/eng/registration.jsp
@@ -1806,7 +1946,15 @@ inf.mk
 name.mk
 
 // ml : http://www.gobin.info/domainname/ml-template.doc
-*.ml
+// see also: http://en.wikipedia.org/wiki/.ml
+ml
+com.ml
+edu.ml
+gouv.ml
+gov.ml
+net.ml
+org.ml
+presse.ml
 
 // mm : http://en.wikipedia.org/wiki/.mm
 *.mm
@@ -2408,7 +2556,22 @@ zoology.museum
 иком.museum
 
 // mv : http://en.wikipedia.org/wiki/.mv
-*.mv
+// "mv" included because, contra Wikipedia, google.mv exists.
+mv
+aero.mv
+biz.mv
+com.mv
+coop.mv
+edu.mv
+gov.mv
+info.mv
+int.mv
+mil.mv
+museum.mv
+name.mv
+net.mv
+org.mv
+pro.mv
 
 // mw : http://www.registrar.mw/
 mw
@@ -2420,6 +2583,7 @@ coop.mw
 edu.mw
 gov.mw
 int.mw
+museum.mw
 net.mw
 org.mw
 
@@ -2471,6 +2635,7 @@ name
 
 // nc : http://www.cctld.nc/
 nc
+asso.nc
 
 // ne : http://en.wikipedia.org/wiki/.ne
 ne
@@ -2518,10 +2683,16 @@ org.ng
 // reservations) 2008-06-08
 nl
 
+// BV.nl will be a registry for dutch BV's (besloten vennootschap)
+bv.nl
+
+// the co.nl domain is managed by CoDNS B.V. Added 2010-05-23.
+co.nl
+
 // no : http://www.norid.no/regelverk/index.en.html
 // The Norwegian registry has declined to notify us of updates. The web pages
 // referenced below are the official source of the data. There is also an
-// announce mailing list: 
+// announce mailing list:
 // https://postlister.uninett.no/sympa/info/norid-diskusjon
 no
 // Norid generic domains : http://www.norid.no/regelverk/vedlegg-c.en.html
@@ -3285,6 +3456,9 @@ våler.østfold.no
 valer.hedmark.no
 våler.hedmark.no
 
+// the co.no domain is managed by CoDNS B.V. Added 2010-05-23.
+co.no
+
 // np : http://www.mos.com.np/register.html
 *.np
 
@@ -3307,13 +3481,25 @@ nu
 
 // om : http://en.wikipedia.org/wiki/.om
 *.om
+!mediaphone.om
+!nawrastelecom.om
+!nawras.om
+!omanmobile.om
+!omanpost.om
+!omantel.om
+!rakpetroleum.om
+!siemens.om
+!songfest.om
+!statecouncil.om
 
 // org : http://en.wikipedia.org/wiki/.org
 org
 
 // CentralNic names : http://www.centralnic.com/names/domains
 // Submitted by registry <gavin.brown@centralnic.com> 2008-06-17
+// Updated by registry <gavin.brown@centralnic.com> 2011-05-27
 ae.org
+us.org
 
 // ZaNiC names : http://www.za.net/
 // Confirmed by registry <hostmaster@nic.za.net> 2009-10-03
@@ -3435,7 +3621,6 @@ sr.gov.pl
 po.gov.pl
 pa.gov.pl
 // other functional domains
-med.pl
 ngo.pl
 irc.pl
 usenet.pl
@@ -3525,6 +3710,7 @@ rybnik.pl
 rzeszow.pl
 sanok.pl
 sejny.pl
+siedlce.pl
 slask.pl
 slupsk.pl
 sosnowiec.pl
@@ -3563,6 +3749,7 @@ zgorzelec.pl
 gda.pl
 gdansk.pl
 gdynia.pl
+med.pl
 sopot.pl
 // other geographical domains
 gliwice.pl
@@ -3570,6 +3757,9 @@ krakow.pl
 poznan.pl
 wroc.pl
 zakopane.pl
+
+// co.pl : Mainseek Sp. z o.o. http://www.co.pl
+co.pl
 
 // pn : http://www.government.pn/PnRegistry/policies.htm
 pn
@@ -3826,6 +4016,7 @@ mil.rw
 gouv.rw
 
 // sa : http://www.nic.net.sa/
+sa
 com.sa
 net.sa
 org.sa
@@ -3944,23 +4135,37 @@ sm
 
 // sn : http://en.wikipedia.org/wiki/.sn
 sn
+art.sn
+com.sn
+edu.sn
+gouv.sn
+org.sn
+perso.sn
+univ.sn
+
+// so : http://www.soregistry.com/
+so
+com.so
+net.so
+org.so
 
 // sr : http://en.wikipedia.org/wiki/.sr
 sr
 
 // st : http://www.nic.st/html/policyrules/
 st
-gov.st
-saotome.st
-principe.st
-consulado.st
-org.st
-edu.st
-net.st
-com.st
-store.st
-mil.st
 co.st
+com.st
+consulado.st
+edu.st
+embaixada.st
+gov.st
+mil.st
+net.st
+org.st
+principe.st
+saotome.st
+store.st
 
 // su : http://en.wikipedia.org/wiki/.su
 su
@@ -4018,17 +4223,19 @@ or.th
 tj
 ac.tj
 biz.tj
-com.tj
 co.tj
+com.tj
 edu.tj
+go.tj
+gov.tj
 int.tj
+mil.tj
 name.tj
 net.tj
+nic.tj
 org.tj
+test.tj
 web.tj
-gov.tj
-go.tj
-mil.tj
 
 // tk : http://en.wikipedia.org/wiki/.tk
 tk
@@ -4077,6 +4284,10 @@ mil.to
 
 // tr : http://en.wikipedia.org/wiki/.tr
 *.tr
+!nic.tr
+// Used by government in the TRNC
+// http://en.wikipedia.org/wiki/.nc.tr
+gov.nc.tr
 
 // travel : http://en.wikipedia.org/wiki/.travel
 travel
@@ -4102,12 +4313,9 @@ gov.tt
 edu.tt
 
 // tv : http://en.wikipedia.org/wiki/.tv
-// list of other 2nd level tlds ?
+// Not listing any 2LDs as reserved since none seem to exist in practice,
+// Wikipedia notwithstanding.
 tv
-com.tv
-net.tv
-org.tv
-gov.tv
 
 // tw : http://en.wikipedia.org/wiki/.tw
 tw
@@ -4127,11 +4335,14 @@ club.tw
 
 // tz : http://en.wikipedia.org/wiki/.tz
 // Submitted by registry <randy@psg.com> 2008-06-17
+// Updated from http://www.tznic.or.tz/index.php/domains.html 2010-10-25
 ac.tz
 co.tz
 go.tz
+mil.tz
 ne.tz
 or.tz
+sc.tz
 
 // ua : http://www.nic.net.ua/
 ua
@@ -4205,11 +4416,14 @@ or.ug
 !british-library.uk
 !icnet.uk
 !jet.uk
+!mod.uk
 !nel.uk
 !nhs.uk
+!nic.uk
 !nls.uk
 !national-library-scotland.uk
 !parliament.uk
+!police.uk
 
 // us : http://en.wikipedia.org/wiki/.us
 us
@@ -4277,7 +4491,184 @@ wy.us
 // The registrar notes several more specific domains available in each state,
 // such as state.*.us, dst.*.us, etc., but resolution of these is somewhat
 // haphazard; in some states these domains resolve as addresses, while in others
-// only subdomains are avilable, or even nothing at all.
+// only subdomains are available, or even nothing at all. We include the
+// most common ones where it's clear that different sites are different
+// entities.
+k12.ak.us
+k12.al.us
+k12.ar.us
+k12.as.us
+k12.az.us
+k12.ca.us
+k12.co.us
+k12.ct.us
+k12.dc.us
+k12.de.us
+k12.fl.us
+k12.ga.us
+k12.gu.us
+// k12.hi.us  Hawaii has a state-wide DOE login: bug 614565
+k12.ia.us
+k12.id.us
+k12.il.us
+k12.in.us
+k12.ks.us
+k12.ky.us
+k12.la.us
+k12.ma.us
+k12.md.us
+k12.me.us
+k12.mi.us
+k12.mn.us
+k12.mo.us
+k12.ms.us
+k12.mt.us
+k12.nc.us
+k12.nd.us
+k12.ne.us
+k12.nh.us
+k12.nj.us
+k12.nm.us
+k12.nv.us
+k12.ny.us
+k12.oh.us
+k12.ok.us
+k12.or.us
+k12.pa.us
+k12.pr.us
+k12.ri.us
+k12.sc.us
+k12.sd.us
+k12.tn.us
+k12.tx.us
+k12.ut.us
+k12.vi.us
+k12.vt.us
+k12.va.us
+k12.wa.us
+k12.wi.us
+k12.wv.us
+k12.wy.us
+
+cc.ak.us
+cc.al.us
+cc.ar.us
+cc.as.us
+cc.az.us
+cc.ca.us
+cc.co.us
+cc.ct.us
+cc.dc.us
+cc.de.us
+cc.fl.us
+cc.ga.us
+cc.gu.us
+cc.hi.us
+cc.ia.us
+cc.id.us
+cc.il.us
+cc.in.us
+cc.ks.us
+cc.ky.us
+cc.la.us
+cc.ma.us
+cc.md.us
+cc.me.us
+cc.mi.us
+cc.mn.us
+cc.mo.us
+cc.ms.us
+cc.mt.us
+cc.nc.us
+cc.nd.us
+cc.ne.us
+cc.nh.us
+cc.nj.us
+cc.nm.us
+cc.nv.us
+cc.ny.us
+cc.oh.us
+cc.ok.us
+cc.or.us
+cc.pa.us
+cc.pr.us
+cc.ri.us
+cc.sc.us
+cc.sd.us
+cc.tn.us
+cc.tx.us
+cc.ut.us
+cc.vi.us
+cc.vt.us
+cc.va.us
+cc.wa.us
+cc.wi.us
+cc.wv.us
+cc.wy.us
+
+lib.ak.us
+lib.al.us
+lib.ar.us
+lib.as.us
+lib.az.us
+lib.ca.us
+lib.co.us
+lib.ct.us
+lib.dc.us
+lib.de.us
+lib.fl.us
+lib.ga.us
+lib.gu.us
+lib.hi.us
+lib.ia.us
+lib.id.us
+lib.il.us
+lib.in.us
+lib.ks.us
+lib.ky.us
+lib.la.us
+lib.ma.us
+lib.md.us
+lib.me.us
+lib.mi.us
+lib.mn.us
+lib.mo.us
+lib.ms.us
+lib.mt.us
+lib.nc.us
+lib.nd.us
+lib.ne.us
+lib.nh.us
+lib.nj.us
+lib.nm.us
+lib.nv.us
+lib.ny.us
+lib.oh.us
+lib.ok.us
+lib.or.us
+lib.pa.us
+lib.pr.us
+lib.ri.us
+lib.sc.us
+lib.sd.us
+lib.tn.us
+lib.tx.us
+lib.ut.us
+lib.vi.us
+lib.vt.us
+lib.va.us
+lib.wa.us
+lib.wi.us
+lib.wv.us
+lib.wy.us
+
+// k12.ma.us contains school districts in Massachusetts. The 4LDs are
+//  managed indepedently except for private (PVT), charter (CHTR) and
+//  parochial (PAROCH) schools.  Those are delegated dorectly to the
+//  5LD operators.   <k12-ma-hostmaster _ at _ rsuc.gweep.net>
+pvt.k12.ma.us
+chtr.k12.ma.us
+paroch.k12.ma.us
 
 // uy : http://www.antel.com.uy/
 *.uy
@@ -4346,6 +4737,169 @@ org.ws
 gov.ws
 edu.ws
 
+// IDN ccTLDs
+// Please sort by ISO 3166 ccTLD, then punicode string
+// when submitting patches and follow this format:
+// <Punicode> ("<english word>" <language>) : <ISO 3166 ccTLD>
+// [optional sponsoring org]
+// <URL>
+
+// xn--mgbaam7a8h ("Emerat" Arabic) : AE
+//http://nic.ae/english/arabicdomain/rules.jsp
+امارات
+
+// xn--54b7fta0cc ("Bangla" Bangla) : BD
+বাংলা
+
+// xn--fiqs8s ("China" Chinese-Han-Simplified <.Zhonggou>) : CN
+// CNNIC
+// http://cnnic.cn/html/Dir/2005/10/11/3218.htm
+中国
+
+// xn--fiqz9s ("China" Chinese-Han-Traditional <.Zhonggou>) : CN
+// CNNIC
+// http://cnnic.cn/html/Dir/2005/10/11/3218.htm
+中國
+
+// xn--lgbbat1ad8j ("Algeria / Al Jazair" Arabic) : DZ
+الجزائر
+
+// xn--wgbh1c ("Egypt" Arabic .masr) : EG
+// http://www.dotmasr.eg/
+مصر
+
+// xn--node ("ge" Georgian (Mkhedruli)) : GE
+გე
+
+// xn--j6w193g ("Hong Kong" Chinese-Han) : HK
+// https://www2.hkirc.hk/register/rules.jsp
+香港
+
+// xn--h2brj9c ("Bharat" Devanagari) : IN
+// India
+भारत
+
+// xn--mgbbh1a71e ("Bharat" Arabic) : IN
+// India
+بھارت
+
+// xn--fpcrj9c3d ("Bharat" Telugu) : IN
+// India
+భారత్
+
+// xn--gecrj9c ("Bharat" Gujarati) : IN
+// India
+ભારત
+
+// xn--s9brj9c ("Bharat" Gurmukhi) : IN
+// India
+ਭਾਰਤ
+
+// xn--45brj9c ("Bharat" Bengali) : IN
+// India
+ভারত
+
+// xn--xkc2dl3a5ee0h ("India" Tamil) : IN
+// India
+இந்தியா
+
+// xn--mgba3a4f16a ("Iran" Persian) : IR
+ایران
+
+// xn--mgba3a4fra ("Iran" Arabic) : IR
+ايران
+
+//xn--mgbayh7gpa ("al-Ordon" Arabic) JO
+//National Information Technology Center (NITC)
+//Royal Scientific Society, Al-Jubeiha
+الاردن
+
+// xn--3e0b707e ("Republic of Korea" Hangul) : KR
+한국
+
+// xn--fzc2c9e2c ("Lanka" Sinhalese-Sinhala) : LK
+// http://nic.lk
+ලංකා
+
+// xn--xkc2al3hye2a ("Ilangai" Tamil) : LK
+// http://nic.lk
+இலங்கை
+
+// xn--mgbc0a9azcg ("Morocco / al-Maghrib" Arabic) : MA
+المغرب
+
+// xn--mgb9awbf ("Oman" Arabic) : OM
+عمان
+
+// xn--ygbi2ammx ("Falasteen" Arabic) : PS
+// The Palestinian National Internet Naming Authority (PNINA)
+// http://www.pnina.ps
+فلسطين
+
+// xn--90a3ac ("srb" Cyrillic) : RS
+срб
+
+// xn--p1ai ("rf" Russian-Cyrillic) : RU
+// http://www.cctld.ru/en/docs/rulesrf.php
+рф
+
+// xn--wgbl6a ("Qatar" Arabic) : QA
+// http://www.ict.gov.qa/
+قطر
+
+// xn--mgberp4a5d4ar ("AlSaudiah" Arabic) : SA
+// http://www.nic.net.sa/
+السعودية
+
+// xn--mgberp4a5d4a87g ("AlSaudiah" Arabic) variant : SA
+السعودیة
+
+// xn--mgbqly7c0a67fbc ("AlSaudiah" Arabic) variant : SA
+السعودیۃ
+
+// xn--mgbqly7cvafr ("AlSaudiah" Arabic) variant : SA
+السعوديه
+
+// xn--ogbpf8fl ("Syria" Arabic) : SY
+سورية
+
+// xn--mgbtf8fl ("Syria" Arabic) variant : SY
+سوريا
+
+// xn--yfro4i67o Singapore ("Singapore" Chinese-Han) : SG
+新加坡
+
+// xn--clchc0ea0b2g2a9gcd ("Singapore" Tamil) : SG
+சிங்கப்பூர்
+
+// xn--o3cw4h ("Thai" Thai) : TH
+// http://www.thnic.co.th
+ไทย
+
+// xn--pgbs0dh ("Tunis") : TN
+// http://nic.tn
+تونس
+
+// xn--kpry57d ("Taiwan" Chinese-Han-Traditional) : TW
+// http://www.twnic.net/english/dn/dn_07a.htm
+台灣
+
+// xn--kprw13d ("Taiwan" Chinese-Han-Simplified) : TW
+// http://www.twnic.net/english/dn/dn_07a.htm
+台湾
+
+// xn--nnx388a ("Taiwan") variant : TW
+臺灣
+
+// xn--j1amh ("ukr" Cyrillic) : UA
+укр
+
+// xn--mgb2ddes ("AlYemen" Arabic) : YE
+اليمن
+
+// xxx : http://icmregistry.com
+xxx
+
 // ye : http://www.y.net.ye/services/domain_name.htm
 *.ye
 
@@ -4360,3 +4914,284 @@ edu.ws
 
 // zw : http://en.wikipedia.org/wiki/.zw
 *.zw
+
+// DynDNS.com Dynamic DNS zones : http://www.dyndns.com/services/dns/dyndns/
+dyndns-at-home.com
+dyndns-at-work.com
+dyndns-blog.com
+dyndns-free.com
+dyndns-home.com
+dyndns-ip.com
+dyndns-mail.com
+dyndns-office.com
+dyndns-pics.com
+dyndns-remote.com
+dyndns-server.com
+dyndns-web.com
+dyndns-wiki.com
+dyndns-work.com
+dyndns.biz
+dyndns.info
+dyndns.org
+dyndns.tv
+at-band-camp.net
+ath.cx
+barrel-of-knowledge.info
+barrell-of-knowledge.info
+better-than.tv
+blogdns.com
+blogdns.net
+blogdns.org
+blogsite.org
+boldlygoingnowhere.org
+broke-it.net
+buyshouses.net
+cechire.com
+dnsalias.com
+dnsalias.net
+dnsalias.org
+dnsdojo.com
+dnsdojo.net
+dnsdojo.org
+does-it.net
+doesntexist.com
+doesntexist.org
+dontexist.com
+dontexist.net
+dontexist.org
+doomdns.com
+doomdns.org
+dvrdns.org
+dyn-o-saur.com
+dynalias.com
+dynalias.net
+dynalias.org
+dynathome.net
+dyndns.ws
+endofinternet.net
+endofinternet.org
+endoftheinternet.org
+est-a-la-maison.com
+est-a-la-masion.com
+est-le-patron.com
+est-mon-blogueur.com
+for-better.biz
+for-more.biz
+for-our.info
+for-some.biz
+for-the.biz
+forgot.her.name
+forgot.his.name
+from-ak.com
+from-al.com
+from-ar.com
+from-az.net
+from-ca.com
+from-co.net
+from-ct.com
+from-dc.com
+from-de.com
+from-fl.com
+from-ga.com
+from-hi.com
+from-ia.com
+from-id.com
+from-il.com
+from-in.com
+from-ks.com
+from-ky.com
+from-la.net
+from-ma.com
+from-md.com
+from-me.org
+from-mi.com
+from-mn.com
+from-mo.com
+from-ms.com
+from-mt.com
+from-nc.com
+from-nd.com
+from-ne.com
+from-nh.com
+from-nj.com
+from-nm.com
+from-nv.com
+from-ny.net
+from-oh.com
+from-ok.com
+from-or.com
+from-pa.com
+from-pr.com
+from-ri.com
+from-sc.com
+from-sd.com
+from-tn.com
+from-tx.com
+from-ut.com
+from-va.com
+from-vt.com
+from-wa.com
+from-wi.com
+from-wv.com
+from-wy.com
+ftpaccess.cc
+fuettertdasnetz.de
+game-host.org
+game-server.cc
+getmyip.com
+gets-it.net
+go.dyndns.org
+gotdns.com
+gotdns.org
+groks-the.info
+groks-this.info
+ham-radio-op.net
+here-for-more.info
+hobby-site.com
+hobby-site.org
+home.dyndns.org
+homedns.org
+homeftp.net
+homeftp.org
+homeip.net
+homelinux.com
+homelinux.net
+homelinux.org
+homeunix.com
+homeunix.net
+homeunix.org
+iamallama.com
+in-the-band.net
+is-a-anarchist.com
+is-a-blogger.com
+is-a-bookkeeper.com
+is-a-bruinsfan.org
+is-a-bulls-fan.com
+is-a-candidate.org
+is-a-caterer.com
+is-a-celticsfan.org
+is-a-chef.com
+is-a-chef.net
+is-a-chef.org
+is-a-conservative.com
+is-a-cpa.com
+is-a-cubicle-slave.com
+is-a-democrat.com
+is-a-designer.com
+is-a-doctor.com
+is-a-financialadvisor.com
+is-a-geek.com
+is-a-geek.net
+is-a-geek.org
+is-a-green.com
+is-a-guru.com
+is-a-hard-worker.com
+is-a-hunter.com
+is-a-knight.org
+is-a-landscaper.com
+is-a-lawyer.com
+is-a-liberal.com
+is-a-libertarian.com
+is-a-linux-user.org
+is-a-llama.com
+is-a-musician.com
+is-a-nascarfan.com
+is-a-nurse.com
+is-a-painter.com
+is-a-patsfan.org
+is-a-personaltrainer.com
+is-a-photographer.com
+is-a-player.com
+is-a-republican.com
+is-a-rockstar.com
+is-a-socialist.com
+is-a-soxfan.org
+is-a-student.com
+is-a-teacher.com
+is-a-techie.com
+is-a-therapist.com
+is-an-accountant.com
+is-an-actor.com
+is-an-actress.com
+is-an-anarchist.com
+is-an-artist.com
+is-an-engineer.com
+is-an-entertainer.com
+is-by.us
+is-certified.com
+is-found.org
+is-gone.com
+is-into-anime.com
+is-into-cars.com
+is-into-cartoons.com
+is-into-games.com
+is-leet.com
+is-lost.org
+is-not-certified.com
+is-saved.org
+is-slick.com
+is-uberleet.com
+is-very-bad.org
+is-very-evil.org
+is-very-good.org
+is-very-nice.org
+is-very-sweet.org
+is-with-theband.com
+isa-geek.com
+isa-geek.net
+isa-geek.org
+isa-hockeynut.com
+issmarterthanyou.com
+isteingeek.de
+istmein.de
+kicks-ass.net
+kicks-ass.org
+knowsitall.info
+land-4-sale.us
+lebtimnetz.de
+leitungsen.de
+likes-pie.com
+likescandy.com
+merseine.nu
+mine.nu
+misconfused.org
+mypets.ws
+myphotos.cc
+neat-url.com
+office-on-the.net
+on-the-web.tv
+podzone.net
+podzone.org
+readmyblog.org
+saves-the-whales.com
+scrapper-site.net
+scrapping.cc
+selfip.biz
+selfip.com
+selfip.info
+selfip.net
+selfip.org
+sells-for-less.com
+sells-for-u.com
+sells-it.net
+sellsyourhome.org
+servebbs.com
+servebbs.net
+servebbs.org
+serveftp.net
+serveftp.org
+servegame.org
+shacknet.nu
+simple-url.com
+space-to-rent.com
+stuff-4-sale.org
+stuff-4-sale.us
+teaches-yoga.com
+thruhere.net
+traeumtgerade.de
+webhop.biz
+webhop.info
+webhop.net
+webhop.org
+worse-than.tv
+writesthisblog.com
