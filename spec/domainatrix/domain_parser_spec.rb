@@ -20,7 +20,7 @@ describe "domain parser" do
 
     it "creates lower levels of the tree" do
       @domain_parser.public_suffixes["jp"].should have_key("ac")
-      @domain_parser.public_suffixes["jp"]["aichi"].should have_key("*")
+      @domain_parser.public_suffixes["jp"]["kawasaki"].should have_key("*")
     end
   end
 
@@ -51,7 +51,7 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.net")[:public_suffix].should == "net"
       @domain_parser.parse("http://pauldix.co.uk")[:public_suffix].should == "co.uk"
       @domain_parser.parse("http://pauldix.com.kg")[:public_suffix].should == "com.kg"
-      @domain_parser.parse("http://pauldix.com.aichi.jp")[:public_suffix].should == "com.aichi.jp"
+      @domain_parser.parse("http://pauldix.com.kawasaki.jp")[:public_suffix].should == "com.kawasaki.jp"
     end
 
     it "should have the domain" do
@@ -60,7 +60,7 @@ describe "domain parser" do
       @domain_parser.parse("http://pauldix.co.uk")[:domain].should == "pauldix"
       @domain_parser.parse("http://foo.pauldix.co.uk")[:domain].should == "pauldix"
       @domain_parser.parse("http://pauldix.com.kg")[:domain].should == "pauldix"
-      @domain_parser.parse("http://pauldix.com.aichi.jp")[:domain].should == "pauldix"
+      @domain_parser.parse("http://pauldix.com.kawasaki.jp")[:domain].should == "pauldix"
     end
 
     it "should have subdomains" do
