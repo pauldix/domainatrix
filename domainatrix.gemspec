@@ -2,17 +2,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{domainatrix}
-  s.version = "0.0.9"
+  s.version = "0.0.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Paul Dix"]
-  s.date = %q{2009-12-10}
-  s.email = %q{paul@pauldix.net}
+  s.authors = ["Paul Dix", "Brian John"]
+  s.date = %q{2012-09-22}
+  s.email = ["paul@pauldix.net", "brian@brianjohn.com"]
   s.files = [
     "lib/domainatrix.rb",
     "lib/effective_tld_names.dat",
     "lib/domainatrix/domain_parser.rb",
     "lib/domainatrix/url.rb",
+    "CHANGELOG.md",
     "README.textile",
     "spec/spec.opts",
     "spec/spec_helper.rb",
