@@ -1,6 +1,6 @@
 module Domainatrix
   class Url
-    attr_reader :public_suffix, :domain, :subdomain, :path, :url, :scheme, :host
+    attr_reader :public_suffix, :domain, :subdomain, :path, :url, :scheme, :host, :port
 
     def initialize(attrs = {})
       @scheme = attrs[:scheme] || ''
@@ -10,6 +10,7 @@ module Domainatrix
       @domain = attrs[:domain] || ''
       @subdomain = attrs[:subdomain] || ''
       @path = attrs[:path] || ''
+      @port = attrs[:port]
     end
 
     def canonical(options = {})
@@ -19,6 +20,7 @@ module Domainatrix
         subdomain_parts = @subdomain.split(".")
         url << ".#{subdomain_parts.reverse.join(".")}"
       end
+      url << ":#{@port}" if @port && @port != 80
       url << @path if @path
 
       url
