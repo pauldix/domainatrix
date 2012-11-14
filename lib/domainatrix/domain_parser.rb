@@ -50,7 +50,8 @@ module Domainatrix
         :scheme => uri.scheme,
         :host   => uri.host,
         :path   => path,
-        :url    => url
+        :url    => url,
+        :port   => uri.port || 80
       })
     end
 

@@ -41,6 +41,11 @@ describe "domain parser" do
       @domain_parser.parse("http://www.pauldix.net")[:host].should == "www.pauldix.net"      
     end
     
+    it "includes the original port" do
+      @domain_parser.parse("http://www.pauldix.net")[:port].should == 80
+      @domain_parser.parse("http://www.pauldix.net:8000")[:port].should == 8000
+    end
+
     it "parses out the path" do
       @domain_parser.parse("http://pauldix.net/foo.html?asdf=foo")[:path].should == "/foo.html?asdf=foo"
       @domain_parser.parse("http://pauldix.net?asdf=foo")[:path].should == "?asdf=foo"

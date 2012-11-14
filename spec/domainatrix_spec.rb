@@ -24,6 +24,7 @@ describe "domainatrix" do
     its(:subdomain) { should == '' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == 'localhost' }
+    its(:port) { should == 3000 }
   end
 
   context 'without a scheme' do
@@ -36,6 +37,7 @@ describe "domainatrix" do
     its(:subdomain) { should == 'www' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == 'pauldix.net' }
+    its(:port) { should == 80 }
   end
 
   context 'with a blank url' do
@@ -48,6 +50,6 @@ describe "domainatrix" do
     its(:subdomain) { should == '' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == '' }
+    its(:port) { should == nil }
   end
-
 end
