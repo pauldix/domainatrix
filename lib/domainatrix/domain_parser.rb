@@ -39,9 +39,11 @@ module Domainatrix
       else
         path = uri.path
       end
-
-      if uri.host == 'localhost'
-        uri_hash = { :public_suffix => '', :domain => 'localhost', :subdomain => '' }
+      
+      localhost_re = /(\A|\.)localhost\z/
+      
+      if uri.host =~ localhost_re
+        uri_hash = { :public_suffix => '', :domain => 'localhost', :subdomain => uri.host.sub(localhost_re, '') }
       else
         uri_hash = parse_domains_from_host(uri.host || uri.basename)
       end
