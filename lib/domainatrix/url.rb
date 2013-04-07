@@ -5,7 +5,7 @@ module Domainatrix
     def initialize(attrs = {})
       @scheme = attrs[:scheme] || ''
       @host = attrs[:host] || ''
-      @port = attrs[:port] || ''
+      @port = attrs[:port].to_s
       @url = attrs[:url] || ''
       @public_suffix = attrs[:public_suffix] || ''
       @domain = attrs[:domain] || ''
