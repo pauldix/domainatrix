@@ -11,6 +11,8 @@ module Domainatrix
       @domain = attrs[:domain] || ''
       @subdomain = attrs[:subdomain] || ''
       @path = attrs[:path] || ''
+      @localhost = (attrs[:localhost] == true)
+      @ip = (attrs[:ip] == true)
     end
 
     def canonical(options = {})
@@ -45,6 +47,13 @@ module Domainatrix
       [@domain, @public_suffix].compact.reject{|s|s.empty?}.join('.')
     end
     alias domain_with_tld domain_with_public_suffix
-
+    
+    def localhost?
+      @localhost
+    end
+    
+    def ip?
+      @ip
+    end
   end
 end
