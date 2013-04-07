@@ -24,9 +24,25 @@ module Domainatrix
 
       url
     end
+    
+    def host_with_port
+      if !@port.empty?
+        "#{@host}:#{@port}"
+      else
+        host
+      end
+    end
 
+    def domain_with_port
+      if !@port.empty?
+        "#{domain_with_public_suffix}:#{@port}"
+      else
+        domain_with_public_suffix
+      end
+    end
+    
     def domain_with_public_suffix
-      [@domain, @public_suffix].compact.reject{|s|s==''}.join('.')
+      [@domain, @public_suffix].compact.reject{|s|s.empty?}.join('.')
     end
     alias domain_with_tld domain_with_public_suffix
 
