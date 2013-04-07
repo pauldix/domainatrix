@@ -51,6 +51,7 @@ module Domainatrix
       uri_hash.merge({
         :scheme => uri.scheme,
         :host   => uri.host,
+        :port   => (uri.port == uri.default_port) ? nil : uri.port,
         :path   => path,
         :url    => url
       })
