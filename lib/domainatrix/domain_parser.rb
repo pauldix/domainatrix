@@ -40,10 +40,13 @@ module Domainatrix
         path = uri.path
       end
       
-      localhost_re = /(\A|\.)localhost\z/
+      localhost_re  = /(\A|\.)localhost\z/
+      ip_re         = /\A\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/
       
       if uri.host =~ localhost_re
-        uri_hash = { :public_suffix => '', :domain => 'localhost', :subdomain => uri.host.sub(localhost_re, '') }
+        uri_hash = { :public_suffix => '', :domain => 'localhost', :subdomain => uri.host.sub(localhost_re, ''), :localhost => true }
+      elsif uri.host =~ ip_re
+        uri_hash = { :public_suffix => '', :domain => uri.host, :subdomain => '', :ip => true }
       else
         uri_hash = parse_domains_from_host(uri.host || uri.basename)
       end
@@ -51,6 +54,7 @@ module Domainatrix
       uri_hash.merge({
         :scheme => uri.scheme,
         :host   => uri.host,
+        :port   => (uri.port == uri.default_port) ? nil : uri.port,
         :path   => path,
         :url    => url
       })
