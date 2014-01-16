@@ -1,5 +1,6 @@
 module Domainatrix
   class Url
+    include Addressable
     attr_reader :public_suffix, :domain, :subdomain, :path, :url, :scheme, :host, :port, :parsed_uri
 
     def initialize(attrs = {})
@@ -13,7 +14,7 @@ module Domainatrix
       @path = attrs[:path] || ''
       @localhost = (attrs[:localhost] == true)
       @ip = (attrs[:ip] == true)
-      @parsed_uri = attrs[:parsed_uri] || ''
+      @parsed_uri = attrs[:parsed_uri] || URI.parse('')
     end
 
     def canonical(options = {})
