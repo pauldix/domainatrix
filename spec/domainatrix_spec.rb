@@ -24,6 +24,7 @@ describe "domainatrix" do
     its(:subdomain) { should == '' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == 'localhost' }
+    its('parsed_uri.hostname') { should == 'localhost' }
   end
 
   context 'without a scheme' do
@@ -36,6 +37,7 @@ describe "domainatrix" do
     its(:subdomain) { should == 'www' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == 'pauldix.net' }
+    its('parsed_uri.hostname') { should == 'www.pauldix.net' }
   end
 
   context 'with a blank url' do
@@ -48,6 +50,7 @@ describe "domainatrix" do
     its(:subdomain) { should == '' }
     its(:path) { should == '' }
     its(:domain_with_tld) { should == '' }
+    its('parsed_uri.hostname') { should be_nil }
   end
 
 end
