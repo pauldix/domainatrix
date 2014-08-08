@@ -2,53 +2,53 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "url" do
   it "has the original url" do
-    Domainatrix::Url.new(:url => "http://pauldix.net").url.should == "http://pauldix.net"
+    expect(Domainatrix::Url.new(:url => "http://pauldix.net").url).to eq("http://pauldix.net")
   end
 
   it "has the public_suffix" do
-    Domainatrix::Url.new(:public_suffix => "net").public_suffix.should == "net"
+    expect(Domainatrix::Url.new(:public_suffix => "net").public_suffix).to eq("net")
   end
 
   it "has the domain" do
-    Domainatrix::Url.new(:domain => "pauldix").domain.should == "pauldix"
+    expect(Domainatrix::Url.new(:domain => "pauldix").domain).to eq("pauldix")
   end
 
   it "has the subdomain" do
-    Domainatrix::Url.new(:subdomain => "foo").subdomain.should == "foo"
+    expect(Domainatrix::Url.new(:subdomain => "foo").subdomain).to eq("foo")
   end
 
   it "has the path" do
-    Domainatrix::Url.new(:path => "/asdf.html").path.should == "/asdf.html"
+    expect(Domainatrix::Url.new(:path => "/asdf.html").path).to eq("/asdf.html")
   end
 
   it "canonicalizes the url" do
-    Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").canonical.should == "net.pauldix"
-    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net").canonical.should == "net.pauldix.foo"
-    Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :public_suffix => "net").canonical.should == "net.pauldix.bar.foo"
-    Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "co.uk").canonical.should == "uk.co.pauldix"
-    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "co.uk").canonical.should == "uk.co.pauldix.foo"
-    Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :public_suffix => "co.uk").canonical.should == "uk.co.pauldix.bar.foo"
-    Domainatrix::Url.new(:subdomain => "", :domain => "pauldix", :public_suffix => "co.uk").canonical.should == "uk.co.pauldix"
+    expect(Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").canonical).to eq("net.pauldix")
+    expect(Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net").canonical).to eq("net.pauldix.foo")
+    expect(Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :public_suffix => "net").canonical).to eq("net.pauldix.bar.foo")
+    expect(Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "co.uk").canonical).to eq("uk.co.pauldix")
+    expect(Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "co.uk").canonical).to eq("uk.co.pauldix.foo")
+    expect(Domainatrix::Url.new(:subdomain => "foo.bar", :domain => "pauldix", :public_suffix => "co.uk").canonical).to eq("uk.co.pauldix.bar.foo")
+    expect(Domainatrix::Url.new(:subdomain => "", :domain => "pauldix", :public_suffix => "co.uk").canonical).to eq("uk.co.pauldix")
   end
 
   it "canonicalizes the url with the path" do
-    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net", :path => "/hello").canonical.should == "net.pauldix.foo/hello"
+    expect(Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net", :path => "/hello").canonical).to eq("net.pauldix.foo/hello")
   end
 
   it "canonicalizes the url without the path" do
-    Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net").canonical(:include_path => false).should == "net.pauldix.foo"
+    expect(Domainatrix::Url.new(:subdomain => "foo", :domain => "pauldix", :public_suffix => "net").canonical(:include_path => false)).to eq("net.pauldix.foo")
   end
 
   it "combines the domain with the public_suffix" do
-    Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").domain_with_public_suffix.should == "pauldix.net"
-    Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_public_suffix.should == "foo.co.uk"
-    Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_public_suffix.should == "bar.com"
+    expect(Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").domain_with_public_suffix).to eq("pauldix.net")
+    expect(Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_public_suffix).to eq("foo.co.uk")
+    expect(Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_public_suffix).to eq("bar.com")
   end
   
   it "combines the domain with the public_suffix as an alias" do
-    Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").domain_with_tld.should == "pauldix.net"
-    Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_tld.should == "foo.co.uk"
-    Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_tld.should == "bar.com"
+    expect(Domainatrix::Url.new(:domain => "pauldix", :public_suffix => "net").domain_with_tld).to eq("pauldix.net")
+    expect(Domainatrix::Url.new(:domain => "foo", :public_suffix => "co.uk" ).domain_with_tld).to eq("foo.co.uk")
+    expect(Domainatrix::Url.new(:subdomain => "baz", :domain => "bar", :public_suffix => "com").domain_with_tld).to eq("bar.com")
   end
 
 end
