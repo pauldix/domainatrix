@@ -5,7 +5,7 @@ PATH
       addressable
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     addressable (2.3.3)
     archive-tar-minitar (0.5.2)
