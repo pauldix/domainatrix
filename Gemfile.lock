@@ -15,6 +15,7 @@ GEM
       rbx-require-relative (> 0.0.4)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    rake (10.3.2)
     rbx-require-relative (0.0.5)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
@@ -45,6 +46,7 @@ PLATFORMS
 
 DEPENDENCIES
   domainatrix!
+  rake
   rspec
   ruby-debug
   ruby-debug19
