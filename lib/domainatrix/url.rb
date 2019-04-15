@@ -7,6 +7,7 @@ module Domainatrix
       @host = attrs[:host] || ''
       @port = attrs[:port].to_s
       @url = attrs[:url] || ''
+      @url_with_protocol = "#{attrs[:scheme]}#{attrs[:url]}" || ''
       @public_suffix = attrs[:public_suffix] || ''
       @domain = attrs[:domain] || ''
       @subdomain = attrs[:subdomain] || ''
