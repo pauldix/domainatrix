@@ -26,7 +26,7 @@ url = Domainatrix.parse("http://www.pauldix.net")
 url.url       # => "http://www.pauldix.net" (the original url)
 url.public_suffix       # => "net"
 url.domain    # => "pauldix"
-url.canonical # => "net.pauldix"
+url.canonical # => "net.pauldix.www"
 
 url = Domainatrix.parse("http://foo.bar.pauldix.co.uk/asdf.html?q=arg")
 url.public_suffix       # => "co.uk"
