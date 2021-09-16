@@ -32,7 +32,7 @@ module Domainatrix
 
     def parse(url)
       return {} unless url && url.strip != ''
-      url = "http://#{url}" unless url[/:\/\//]
+      url = "http://#{url.gsub(/^\/*/,'')}" unless url[/:\/\//]
       uri = URI.parse(url)
       if uri.query
         path = "#{uri.path}?#{uri.query}"
